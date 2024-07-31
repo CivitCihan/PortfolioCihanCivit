@@ -92,6 +92,7 @@ const styles = {
     textAlign: 'center',
     marginVertical: '8px',
     color: '#405D72',
+    maxWidth: '600px',
   },
   buttonContainer: {
     marginVertical: '10px',
@@ -99,6 +100,8 @@ const styles = {
     backgroundColor: '#F7E7DC',
     borderRadius: '8px',
     padding: '5px',
+    display: 'flex',
+    justifyContent: 'center',
   },
   button: {
     display: 'block',
@@ -114,7 +117,7 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: '20px',
+    marginTop: '20px',
   },
   socialMediaContainer: {
     display: 'flex',
