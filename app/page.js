@@ -29,6 +29,7 @@ const HomePage = () => {
         Aynı anda YouTube ve Instagram'da içerik üretiyorum.
       </p>
       <div style={styles.buttonContainer}>
+        <Link href="/github">
           <a style={styles.button}>GitHub</a>
         </Link>
       </div>
@@ -69,6 +70,8 @@ const styles = {
     alignItems: 'center',
     padding: '30px',
     backgroundColor: '#FFF8F3',
+    minHeight: '100vh',
+    justifyContent: 'center',
   },
   header: {
     display: 'flex',
