@@ -29,7 +29,6 @@ const HomePage = () => {
         Aynı anda YouTube ve Instagram'da içerik üretiyorum.
       </p>
       <div style={styles.buttonContainer}>
-        <Link href="/github">
           <a style={styles.button}>GitHub</a>
         </Link>
       </div>
