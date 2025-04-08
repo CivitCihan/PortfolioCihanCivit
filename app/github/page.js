@@ -56,51 +56,71 @@ const GitHubPage = () => {
 
 const styles = {
   container: {
-    padding: '16px',
-    backgroundColor: '#FFF8F3',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '40px 20px',
+    backgroundColor: '#DDE6ED',
+    minHeight: '100vh',
+    justifyContent: 'center',
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: '20px',
+  },
+  image: {
+    borderRadius: '50%',
+    border: '3px solid #526D82',
   },
   title: {
-    fontSize: '24px',
+    fontSize: '32px',
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: '16px',
-    color: '#405D72',
+    color: '#27374D',
+    marginLeft: '20px',
   },
-  repoList: {
-    listStyleType: 'none',
-    padding: 0,
-  },
-  repoItem: {
-    marginBottom: '16px',
-    padding: '16px',
-    backgroundColor: '#F7E7DC',
-    borderRadius: '8px',
-    border: '1px solid #758694',
-  },
-  repoName: {
+  description: {
     fontSize: '18px',
-    fontWeight: 'bold',
-    color: '#405D72',
+    textAlign: 'center',
+    margin: '12px 0',
+    color: '#27374D',
+    maxWidth: '700px',
+    lineHeight: '1.6',
   },
-  repoDescription: {
-    fontSize: '14px',
-    color: '#666',
-  },
-  link: {
-    display: 'block',
-    marginTop: '8px',
-    color: '#758694',
-    textDecoration: 'none',
-  },
-  centered: {
+  buttonContainer: {
+    marginTop: '20px',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
   },
-  errorText: {
-    color: 'red',
+  button: {
+    textAlign: 'center',
+    color: '#DDE6ED',
+    textDecoration: 'none',
+    padding: '10px 20px',
+    borderRadius: '6px',
+    backgroundColor: '#526D82',
+    fontWeight: 'bold',
     fontSize: '16px',
+    transition: 'background-color 0.3s ease',
+  },
+  footer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '30px',
+    gap: '24px',
+  },
+  socialMediaContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  socialMediaText: {
+    marginTop: '6px',
+    color: '#27374D',
+    fontSize: '14px',
   },
 };
 
