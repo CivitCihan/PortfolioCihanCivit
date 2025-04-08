@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Image from 'next/image';
-import Link from 'next/link';
 
 const GitHubPage = () => {
   const [repos, setRepos] = useState([]);
