@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaInstagram, FaYoutube, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaKaggle } from 'react-icons/fa';
 
 const HomePage = () => {
   return (
@@ -17,45 +17,44 @@ const HomePage = () => {
         <h1 style={styles.title}>Cihan Çivit</h1>
       </header>
       <p style={styles.description}>
-        Memleketlerim Gaziantep ve Sinop. 02/Ocak/2001 Gaziantep doğumluyum.
+        👋 Hi, I'm Cihan Çivit, a passionate Software Engineer from Gaziantep & Sinop, Türkiye.
       </p>
       <p style={styles.description}>
-        Yazılım Mühendisiyim, Yapay Zeka ve Full-Stack ile ilgileniyorum.
+        🎂 Born on January 2nd, 2001 — driven by curiosity and always eager to learn and build impactful software.
       </p>
       <p style={styles.description}>
-        Bildiğim yazılım dilleri: JavaScript, C, C++, Python, HTML ve CSS.
+        💻 I'm deeply interested in <b>Artificial Intelligence</b>, <b>Machine Learning</b>, and <b>Computer Vision</b>.
       </p>
       <p style={styles.description}>
-        Aynı anda YouTube ve Instagram'da içerik üretiyorum.
+        🧠 My main strengths are in Python, and I regularly work with:
+        <b> NumPy, Seaborn, MATLAB, Pandas</b>, especially for ML algorithms.
       </p>
+      <p style={styles.description}>
+        💡 I also have experience with <b>JavaScript, C, C++, HTML, and CSS</b>.
+      </p>
+      
       <div style={styles.buttonContainer}>
-        <Link href="/github">
-          <a style={styles.button}>GitHub</a>
-        </Link>
+      <Link href="/github" style={styles.button}>
+        GitHub
+      </Link>
       </div>
       <footer style={styles.footer}>
         <div style={styles.socialMediaContainer}>
-          <a href="https://www.instagram.com/duzenlicalisiyorum/" target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={30} color="#405D72" />
-          </a>
-          <p style={styles.socialMediaText}>Content Instagram</p>
+          <Link href="https://www.kaggle.com/cihanivit" target="_blank" rel="noopener noreferrer">
+            <FaKaggle size={30} color="#405D72" />
+          </Link>
+          <p style={styles.socialMediaText}>Kaggle</p>
         </div>
         <div style={styles.socialMediaContainer}>
-          <a href="https://www.youtube.com/channel/UCxrmapzuhYOUMDpoHqLCuVg" target="_blank" rel="noopener noreferrer">
-            <FaYoutube size={30} color="#405D72" />
-          </a>
-          <p style={styles.socialMediaText}>YouTube</p>
-        </div>
-        <div style={styles.socialMediaContainer}>
-          <a href="https://www.linkedin.com/in/cihan-civit-56b182246/" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.linkedin.com/in/cihan-civit-56b182246/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={30} color="#405D72" />
-          </a>
+          </Link>
           <p style={styles.socialMediaText}>LinkedIn</p>
         </div>
         <div style={styles.socialMediaContainer}>
-          <a href="https://www.instagram.com/cihancivit.exe/?igsh=cG1jcTZ6dHJzeGRh" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.instagram.com/cihancivit.exe/?igsh=cG1jcTZ6dHJzeGRh" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={30} color="#405D72" />
-          </a>
+          </Link>
           <p style={styles.socialMediaText}>Personal Instagram</p>
         </div>
       </footer>
@@ -68,8 +67,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '30px',
-    backgroundColor: '#FFF8F3',
+    padding: '40px 20px',
+    backgroundColor: '#DDE6ED',
     minHeight: '100vh',
     justifyContent: 'center',
   },
@@ -77,59 +76,59 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: '16px',
+    marginBottom: '20px',
   },
   image: {
     borderRadius: '50%',
-    border: '2px solid #758694',
+    border: '3px solid #526D82',
   },
   title: {
-    fontSize: '28px',
+    fontSize: '32px',
     fontWeight: 'bold',
-    color: '#405D72',
-    marginLeft: '16px',
+    color: '#27374D',
+    marginLeft: '20px',
   },
   description: {
     fontSize: '18px',
     textAlign: 'center',
-    marginVertical: '8px',
-    color: '#405D72',
-    maxWidth: '600px',
+    margin: '12px 0',
+    color: '#27374D',
+    maxWidth: '700px',
+    lineHeight: '1.6',
   },
   buttonContainer: {
-    marginVertical: '10px',
-    width: '80%',
-    backgroundColor: '#F7E7DC',
-    borderRadius: '8px',
-    padding: '5px',
+    marginTop: '20px',
     display: 'flex',
     justifyContent: 'center',
   },
   button: {
-    display: 'block',
     textAlign: 'center',
-    color: '#405D72',
+    color: '#DDE6ED',
     textDecoration: 'none',
-    padding: '10px',
-    borderRadius: '4px',
-    backgroundColor: '#F7E7DC',
+    padding: '10px 20px',
+    borderRadius: '6px',
+    backgroundColor: '#526D82',
+    fontWeight: 'bold',
+    fontSize: '16px',
+    transition: 'background-color 0.3s ease',
   },
   footer: {
     display: 'flex',
-    flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '20px',
+    marginTop: '5px',
+    gap: '24px',
   },
   socialMediaContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginHorizontal: '10px',
   },
   socialMediaText: {
-    marginTop: '4px',
-    color: '#405D72',
+    marginTop: '6px',
+    color: '#27374D',
+    fontSize: '14px',
   },
 };
 
