@@ -56,71 +56,56 @@ const GitHubPage = () => {
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '40px 20px',
-    backgroundColor: '#DDE6ED',
-    minHeight: '100vh',
-    justifyContent: 'center',
-  },
-  header: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: '20px',
-  },
-  image: {
-    borderRadius: '50%',
-    border: '3px solid #526D82',
+    padding: '16px',
+    backgroundColor: '#DDE6ED', // arka plan
   },
   title: {
-    fontSize: '32px',
+    fontSize: '24px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: '16px',
+    color: '#27374D', // koyu başlık rengi
+  },
+  repoList: {
+    listStyleType: 'none',
+    padding: 0,
+  },
+  repoItem: {
+    marginBottom: '16px',
+    padding: '16px',
+    backgroundColor: '#9DB2BF', // kart rengi
+    borderRadius: '8px',
+    border: '1px solid #526D82', // sınır rengi
+  },
+  repoName: {
+    fontSize: '18px',
     fontWeight: 'bold',
     color: '#27374D',
-    marginLeft: '20px',
   },
-  description: {
-    fontSize: '18px',
-    textAlign: 'center',
-    margin: '12px 0',
+  repoDescription: {
+    fontSize: '14px',
     color: '#27374D',
-    maxWidth: '700px',
-    lineHeight: '1.6',
   },
-  buttonContainer: {
-    marginTop: '20px',
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  button: {
-    textAlign: 'center',
+  link: {
+    display: 'inline-block',
+    marginTop: '8px',
+    padding: '8px 12px',
+    backgroundColor: '#526D82',
     color: '#DDE6ED',
     textDecoration: 'none',
-    padding: '10px 20px',
-    borderRadius: '6px',
-    backgroundColor: '#526D82',
-    fontWeight: 'bold',
-    fontSize: '16px',
+    borderRadius: '4px',
     transition: 'background-color 0.3s ease',
   },
-  footer: {
+  centered: {
     display: 'flex',
-    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '30px',
-    gap: '24px',
+    height: '100vh',
+    backgroundColor: '#DDE6ED',
   },
-  socialMediaContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  socialMediaText: {
-    marginTop: '6px',
-    color: '#27374D',
-    fontSize: '14px',
+  errorText: {
+    color: '#ff4d4f',
+    fontSize: '16px',
   },
 };
 
