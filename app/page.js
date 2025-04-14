@@ -123,7 +123,6 @@ const styles = {
 footer: {
   width: '100%',
   backgroundColor: '#B4C5D4',
-  padding: '20px 0',
 },
 footerContent: {
   maxWidth: '900px',
@@ -132,7 +131,6 @@ footerContent: {
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '12px',
 },
   socialMediaContainer: {
     display: 'flex',
