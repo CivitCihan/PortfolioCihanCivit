@@ -118,13 +118,16 @@ const styles = {
     fontSize: '16px',
     transition: 'background-color 0.3s ease',
   },
-  footer: {
+    footer: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: '5px',
     gap: '12px',
+    backgroundColor: '#B4C5D4',
+    padding: '20px',
+    borderRadius: '12px',
   },
   socialMediaContainer: {
     display: 'flex',
