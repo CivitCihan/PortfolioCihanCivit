@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaInstagram, FaLinkedin, FaKaggle } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaKaggle, FaGithub } from 'react-icons/fa';
 
 const HomePage = () => {
   return (
@@ -55,7 +55,13 @@ const HomePage = () => {
           <Link href="https://www.instagram.com/cihancivit.exe/?igsh=cG1jcTZ6dHJzeGRh" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={30} color="#405D72" />
           </Link>
-          <p style={styles.socialMediaText}>Personal Instagram</p>
+          <p style={styles.socialMediaText}>Instagram</p>
+        </div>
+        <div style={styles.socialMediaContainer}>
+          <Link href="https://github.com/CivitCihan" target="_blank" rel="noopener noreferrer">
+            <FaGithub size={30} color="#405D72" />
+          </Link>
+          <p style={styles.socialMediaText}>Github</p>
         </div>
       </footer>
     </div>
@@ -118,7 +124,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: '5px',
-    gap: '24px',
+    gap: '12px',
   },
   socialMediaContainer: {
     display: 'flex',
@@ -126,7 +132,7 @@ const styles = {
     alignItems: 'center',
   },
   socialMediaText: {
-    marginTop: '6px',
+    marginTop: '4px',
     color: '#27374D',
     fontSize: '14px',
   },
