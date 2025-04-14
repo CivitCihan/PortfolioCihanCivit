@@ -39,29 +39,31 @@ const HomePage = () => {
       </Link>
       </div>
       <footer style={styles.footer}>
-        <div style={styles.socialMediaContainer}>
-          <Link href="https://www.kaggle.com/cihanivit" target="_blank" rel="noopener noreferrer">
-            <FaKaggle size={30} color="#405D72" />
-          </Link>
-          <p style={styles.socialMediaText}>Kaggle</p>
-        </div>
-        <div style={styles.socialMediaContainer}>
-          <Link href="https://www.linkedin.com/in/cihan-civit-56b182246/" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin size={30} color="#405D72" />
-          </Link>
-          <p style={styles.socialMediaText}>LinkedIn</p>
-        </div>
-        <div style={styles.socialMediaContainer}>
-          <Link href="https://www.instagram.com/cihancivit.exe/?igsh=cG1jcTZ6dHJzeGRh" target="_blank" rel="noopener noreferrer">
-            <FaInstagram size={30} color="#405D72" />
-          </Link>
-          <p style={styles.socialMediaText}>Instagram</p>
-        </div>
-        <div style={styles.socialMediaContainer}>
-          <Link href="https://github.com/CivitCihan" target="_blank" rel="noopener noreferrer">
-            <FaGithub size={30} color="#405D72" />
-          </Link>
-          <p style={styles.socialMediaText}>Github</p>
+        <div style={styles.footerContent}>
+          <div style={styles.socialMediaContainer}>
+            <Link href="https://www.kaggle.com/cihanivit" target="_blank" rel="noopener noreferrer">
+              <FaKaggle size={30} color="#405D72" />
+            </Link>
+            <p style={styles.socialMediaText}>Kaggle</p>
+          </div>
+          <div style={styles.socialMediaContainer}>
+            <Link href="https://www.linkedin.com/in/cihan-civit-56b182246/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={30} color="#405D72" />
+            </Link>
+            <p style={styles.socialMediaText}>LinkedIn</p>
+          </div>
+          <div style={styles.socialMediaContainer}>
+            <Link href="https://www.instagram.com/cihancivit.exe/?igsh=cG1jcTZ6dHJzeGRh" target="_blank" rel="noopener noreferrer">
+              <FaInstagram size={30} color="#405D72" />
+            </Link>
+            <p style={styles.socialMediaText}>Instagram</p>
+          </div>
+          <div style={styles.socialMediaContainer}>
+            <Link href="https://github.com/CivitCihan" target="_blank" rel="noopener noreferrer">
+              <FaGithub size={30} color="#405D72" />
+            </Link>
+            <p style={styles.socialMediaText}>Github</p>
+          </div>
         </div>
       </footer>
     </div>
@@ -118,17 +120,20 @@ const styles = {
     fontSize: '16px',
     transition: 'background-color 0.3s ease',
   },
-    footer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: '5px',
-    gap: '12px',
-    backgroundColor: '#B4C5D4',
-    padding: '20px',
-    borderRadius: '12px',
-  },
+footer: {
+  width: '100%',
+  backgroundColor: '#B4C5D4',
+  padding: '20px 0',
+},
+footerContent: {
+  maxWidth: '900px',
+  margin: '0 auto',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '12px',
+},
   socialMediaContainer: {
     display: 'flex',
     flexDirection: 'column',
