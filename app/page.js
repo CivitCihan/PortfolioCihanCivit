@@ -125,12 +125,12 @@ const styles = {
     alignItems: 'center',
     marginTop: '5px',
     gap: '12px',
-    backgroundColor: '#27374D',
   },
   socialMediaContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    backgroundColor: '#27374D',
   },
   socialMediaText: {
     marginTop: '4px',
