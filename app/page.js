@@ -138,7 +138,6 @@ footerContent: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    backgroundColor: '#27374D',
   },
   socialMediaText: {
     marginTop: '4px',
