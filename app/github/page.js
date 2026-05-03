@@ -1,9 +1,9 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, ActivityIndicator, TouchableOpacity, Linking } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import axios from 'axios';
 
-const GitHubScreen = () => {
+const GitHubPage = () => {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,254 +14,124 @@ const GitHubScreen = () => {
         setRepos(response.data);
         setLoading(false);
       })
-      .catch(err => {
-        setError(err);
+      .catch(error => {
+        setError(error);
         setLoading(false);
       });
   }, []);
 
   if (loading) {
     return (
-      <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#FF9B51" />
-      </View>
+      <div style={styles.centered}>
+        <p style={styles.statusText}>Loading repositories…</p>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <View style={styles.centered}>
-        <Icon name="exclamation-circle" size={32} color="#FF9B51" />
-        <Text style={styles.errorText}>Something went wrong</Text>
-        <Text style={styles.errorSub}>{error.message}</Text>
-      </View>
+      <div style={styles.centered}>
+        <p style={styles.errorText}>Error: {error.message}</p>
+      </div>
     );
   }
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Icon name="github" size={22} color="#FF9B51" style={styles.headerIcon} />
-        <View>
-          <Text style={styles.title}>GitHub Repos</Text>
-          <Text style={styles.subtitle}>{repos.length} public repositories</Text>
-        </View>
-      </View>
-
-      <View style={styles.divider} />
-
-      <FlatList
-        data={repos}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => <RepoCard item={item} />}
-        contentContainerStyle={styles.list}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
+    <div style={styles.container}>
+      <h1 style={styles.title}>GitHub Repositories</h1>
+      <ul style={styles.repoList}>
+        {repos.map(repo => (
+          <li key={repo.id} style={styles.repoItem}>
+            <div style={styles.repoHeader}>
+              <span style={styles.repoName}>{repo.name}</span>
+              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" style={styles.link}>
+                View →
+              </a>
+            </div>
+            {repo.description && (
+              <p style={styles.repoDescription}>{repo.description}</p>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-const RepoCard = ({ item }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <View style={styles.card}>
-      {/* Repo name + language */}
-      <View style={styles.cardHeader}>
-        <Icon name="code-fork" size={13} color="#FF9B51" style={{ marginRight: 7, marginTop: 1 }} />
-        <Text style={styles.repoName}>{item.name}</Text>
-        {item.language && (
-          <View style={styles.langBadge}>
-            <Text style={styles.langText}>{item.language}</Text>
-          </View>
-        )}
-      </View>
-
-      {/* Description */}
-      <Text style={styles.repoDesc} numberOfLines={2}>
-        {item.description || 'No description provided.'}
-      </Text>
-
-      {/* Stats row */}
-      <View style={styles.statsRow}>
-        <View style={styles.stat}>
-          <Icon name="star" size={12} color="#BFC9D1" />
-          <Text style={styles.statText}>{item.stargazers_count}</Text>
-        </View>
-        <View style={styles.stat}>
-          <Icon name="eye" size={12} color="#BFC9D1" />
-          <Text style={styles.statText}>{item.watchers_count}</Text>
-        </View>
-        {item.fork && (
-          <View style={styles.stat}>
-            <Icon name="code-fork" size={12} color="#BFC9D1" />
-            <Text style={styles.statText}>Fork</Text>
-          </View>
-        )}
-      </View>
-
-      {/* Button */}
-      <TouchableOpacity
-        style={[styles.button, isHovered && styles.buttonHover]}
-        onPress={() => Linking.openURL(item.html_url)}
-        onPressIn={() => setIsHovered(true)}
-        onPressOut={() => setIsHovered(false)}
-        activeOpacity={1}
-      >
-        <Icon
-          name="github"
-          size={15}
-          color={isHovered ? '#FF9B51' : '#25343F'}
-          style={{ marginRight: 8 }}
-        />
-        <Text style={[styles.buttonText, isHovered && styles.buttonTextHover]}>
-          View on GitHub
-        </Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
+const styles = {
   container: {
-    flex: 1,
-    backgroundColor: '#25343F',
-    paddingHorizontal: 24,
-    paddingTop: 48,
-  },
-
-  // Header
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  headerIcon: {
-    marginRight: 14,
+    maxWidth: '640px',
+    margin: '0 auto',
+    padding: '40px 20px',
+    backgroundColor: '#EAEFEF',
+    minHeight: '100vh',
   },
   title: {
-    fontSize: 24,
+    fontSize: '20px',
     fontWeight: '700',
-    color: '#EAEFEF',
-    letterSpacing: 0.3,
+    color: '#25343F',
+    marginBottom: '24px',
+    paddingBottom: '10px',
+    borderBottom: '2px solid #FF9B51',
   },
-  subtitle: {
-    fontSize: 13,
-    color: '#BFC9D1',
-    marginTop: 3,
+  repoList: {
+    listStyleType: 'none',
+    padding: 0,
+    margin: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '8px',
   },
-
-  // Divider
-  divider: {
-    width: '100%',
-    height: 1,
-    backgroundColor: '#2E4050',
-    marginBottom: 20,
+  repoItem: {
+    padding: '12px 16px',
+    backgroundColor: '#BFC9D1',
+    borderRadius: '8px',
+    borderLeft: '3px solid #FF9B51',
   },
-
-  list: {
-    paddingBottom: 40,
-  },
-
-  // Cards
-  card: {
-    backgroundColor: '#1A262F',
-    borderRadius: 14,
-    padding: 18,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#2E4050',
-  },
-  cardHeader: {
-    flexDirection: 'row',
+  repoHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 8,
-    flexWrap: 'wrap',
+    gap: '12px',
   },
   repoName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#EAEFEF',
-    flex: 1,
-  },
-  langBadge: {
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-    backgroundColor: '#25343F',
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: '#3a4f60',
-    marginLeft: 8,
-  },
-  langText: {
-    fontSize: 11,
-    color: '#FF9B51',
-    fontWeight: '600',
-  },
-  repoDesc: {
-    fontSize: 13,
-    color: '#8A9BAA',
-    lineHeight: 20,
-    marginBottom: 14,
-  },
-
-  // Stats
-  statsRow: {
-    flexDirection: 'row',
-    gap: 16,
-    marginBottom: 14,
-  },
-  stat: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-  },
-  statText: {
-    fontSize: 12,
-    color: '#BFC9D1',
-  },
-
-  // Button
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FF9B51',
-    borderRadius: 10,
-    paddingVertical: 11,
-  },
-  buttonHover: {
-    backgroundColor: '#e0843a',
-  },
-  buttonText: {
-    color: '#25343F',
-    fontSize: 14,
+    fontSize: '14px',
     fontWeight: '700',
-    letterSpacing: 0.2,
-  },
-  buttonTextHover: {
     color: '#25343F',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
-
-  // States
+  repoDescription: {
+    fontSize: '12px',
+    color: '#25343F',
+    margin: '6px 0 0 0',
+    opacity: 0.75,
+    lineHeight: '1.4',
+  },
+  link: {
+    fontSize: '12px',
+    fontWeight: '600',
+    color: '#FF9B51',
+    textDecoration: 'none',
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+  },
   centered: {
-    flex: 1,
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#25343F',
-    gap: 12,
+    height: '100vh',
+    backgroundColor: '#EAEFEF',
+  },
+  statusText: {
+    color: '#25343F',
+    fontSize: '14px',
   },
   errorText: {
-    fontSize: 17,
-    fontWeight: '600',
-    color: '#EAEFEF',
-    marginTop: 4,
+    color: '#FF9B51',
+    fontSize: '14px',
   },
-  errorSub: {
-    fontSize: 13,
-    color: '#8A9BAA',
-  },
-});
+};
 
-export default GitHubScreen;
+export default GitHubPage;
